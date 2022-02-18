@@ -1,7 +1,7 @@
 const express = require('express');
 const app = new express();
 
-/*This tells the server to use the client 
+/*This tells the server to use the client
 folder for all static resources*/
 app.use(express.static('client'));
 
@@ -9,14 +9,14 @@ app.use(express.static('client'));
 const cors_app = require('cors');
 app.use(cors_app());
 
-/*Uncomment the following lines to loan the environment 
+/*Uncomment the following lines to loan the environment
 variables that you set up in the .env file*/
 
-// const dotenv = require('dotenv');
-// dotenv.config();
+const dotenv = require('dotenv');
+dotenv.config();
 
-// const api_key = process.env.API_KEY;
-// const api_url = process.env.API_URL;
+const api_key = process.env.API_KEY;
+const api_url = process.env.API_URL;
 
 function getNLUInstance() {
     /*Type the code to create the NLU instance and return it.
@@ -34,7 +34,7 @@ app.get("/",(req,res)=>{
 app.get("/url/emotion", (req,res) => {
     // //Extract the url passed from the client through the request object
     // let urlToAnalyze = req.query.url
-    // const analyzeParams = 
+    // const analyzeParams =
     //     {
     //         "url": urlToAnalyze,
     //         "features": {
@@ -44,9 +44,9 @@ app.get("/url/emotion", (req,res) => {
     //                         }
     //         }
     //     }
-     
+
     //  const naturalLanguageUnderstanding = getNLUInstance();
-     
+
     //  naturalLanguageUnderstanding.analyze(analyzeParams)
     //  .then(analysisResults => {
     //     //Please refer to the image to see the order of retrieval
@@ -74,4 +74,3 @@ app.get("/text/sentiment", (req,res) => {
 let server = app.listen(8080, () => {
     console.log('Listening', server.address().port)
 })
-
