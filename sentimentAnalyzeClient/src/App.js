@@ -47,7 +47,7 @@ class App extends React.Component {
         response.json().then((data)=>{
         this.setState({sentimentOutput:data.label});
         let output = data.label;
-        let color = "white"
+        let color = "black"
         switch(output) {
           case "positive": color = "green";break;
           case "negative": color = "red";break;
